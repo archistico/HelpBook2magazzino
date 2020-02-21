@@ -16,17 +16,6 @@ $soggetti_array = [
     [6, "Acquirente"]
 ];
 
-$tipologie_documenti_array = [
-    [1, "Fattura"],
-    [2, "Ricevuta"],
-    [3, "DDT"],
-    [4, "Vendita da conto deposito"],
-    [5, "Reso da conto deposito"],
-    [6, "Distribuzione Reso"],
-    [7, "Distribuzione Carico"],
-    [8, "Stampa"]
-];
-
 class Libro
 {
     private $id;
@@ -88,6 +77,41 @@ class Soggetto
     }
 }
 
+// Classe movimento
+
+abstract class MovimentoTipo
+{
+    const FATTURA = "Fattura";
+    const RICEVUTA = "Ricevuta";
+    const DDT = "DDT";
+    const CONTODEPOSITO_VENDITA = "Conto deposito - Vendita";
+    const CONTODEPOSITO_RESO = "Conto deposito - Reso";
+    const DISTRIBUZIONE_CARICO = "Distribuzione - Carico";
+    const DISTRIBUZIONE_RESO = "Distribuzione - Reso";
+    const STAMPA = "Stampa";
+}
+
+class Movimento
+{
+    private $id;
+    private $idsoggetto;
+    private $data;
+    private $tipo;
+
+    public function __construct(int $id, int $idsoggetto, DateTime $data, String $tipo)
+    {
+        $this->id = $id;
+        $this->idsoggetto = $idsoggetto;
+        $this->data = $data;
+        $this->tipo = $tipo;
+    }
+
+    public function getData()
+    {
+        return $this->data->format('d/m/Y');
+    }
+}
+
 // Creazione libri
 
 $libri = [];
@@ -110,6 +134,11 @@ foreach ($soggetti as $el) {
     echo $el->identifica() . "</br>";
 }
 
+// Creazione movimenti
+
+$movimenti = [];
+$movimenti[] = new Movimento(1, 1, DateTime::createFromFormat('d/m/Y', '01/01/2020'), MovimentoTipo::STAMPA);
+$movimenti[] = new Movimento(2, 6, DateTime::createFromFormat('d/m/Y', '02/01/2020'), MovimentoTipo::FATTURA);
 
 ?>
 
