@@ -50,5 +50,25 @@ $movimenti = new \App\Movimenti();
 $movimenti->addByArray($movimenti_array);
 $movimenti->stampaLista();
 
+
+// ----------------------------
+// Creazione movimentodettaglio
+// ----------------------------
+
+// int $id, int $idmovimento, int $idlibro, int $quantita, float $sconto
+
+$movimentidettaglio_array = [
+    [1, 1, 1, 100, 0],
+    [2, 2, 1, 15, 0],
+    [3, 3, 1, 20, 30],
+    [4, 4, 1, 15, 30],
+    [5, 5, 1, 5, 0],
+    [6, 6, 1, 5, 20]
+];
+
+$mdettaglio = new \App\MovimentiDettaglio();
+$mdettaglio->addByArray($movimentidettaglio_array);
+$mdettaglio->stampaLista();
+
 ?>
 

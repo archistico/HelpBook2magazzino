@@ -25,6 +25,6 @@ class Soggetto
 
     public function identifica(): String
     {
-        return "#" . $this->getId() . " | Soggetto: " . $this->getNome();
+        return "Soggetto | Id: #" . $this->getId() . " | Nome: " . $this->getNome();
     }
 }

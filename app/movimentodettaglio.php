@@ -43,4 +43,9 @@ class MovimentoDettaglio
     {
         return $this->sconto;
     }
+
+    public function identifica() : String
+    {
+        return "MovimentoDettaglio | Id: #" . $this->getId() . " | Movimento: #" . $this->getIdmovimento() . " | Libro: #" . $this->getIdlibro() . " | Quantita: " . $this->getQuantita() . " | Sconto: " . $this->getSconto();
+    }
 }

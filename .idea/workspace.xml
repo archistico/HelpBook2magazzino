@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd96cd68-6bb2-4007-880b-bcb49713fc34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/movimenti.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/movimentidettaglio.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/libro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/libro.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/movimento.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/movimento.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/movimentodettaglio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/movimentodettaglio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/soggetto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/soggetto.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classi.php" beforeDir="false" afterPath="$PROJECT_DIR$/classi.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +58,7 @@
       <workItem from="1582190489247" duration="5689000" />
       <workItem from="1582278499651" duration="35000" />
       <workItem from="1582278573176" duration="4434000" />
-      <workItem from="1582292359756" duration="5846000" />
+      <workItem from="1582292359756" duration="7257000" />
     </task>
     <servers />
   </component>
@@ -71,10 +74,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="255" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582278510696" />
-    <state x="795" y="442" key="NewPhpFileDialog" timestamp="1582297764851">
+    <state x="795" y="442" key="NewPhpFileDialog" timestamp="1582299692191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="795" y="442" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582297764851" />
+    <state x="795" y="442" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582299692191" />
     <state x="795" y="442" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582193056668" />
     <state x="461" y="151" key="SettingsEditor" timestamp="1582190986984">
       <screen x="0" y="0" width="1920" height="1040" />

@@ -44,6 +44,6 @@ class Movimento
 
     public function identifica() : String
     {
-        return "#" . $this->getId() . " | Movimento | Soggetto: " . $this->getIdsoggetto() . " | Data: " . $this->getDataFormatted() . " | Tipo: " . $this->getTipo();
+        return "Movimento | Id: #" . $this->getId() . " | Soggetto: #" . $this->getIdsoggetto() . " | Data: " . $this->getDataFormatted() . " | Tipo: " . $this->getTipo();
     }
 }

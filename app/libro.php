@@ -17,7 +17,7 @@ class Libro
 
     public function identifica(): String
     {
-        return "#" . $this->getId() . " | Libro: " . $this->getTitolo() . " | Prezzo: " . $this->getPrezzo();
+        return "Libro | Id: #" . $this->getId() . " | Titolo: " . $this->getTitolo() . " | Prezzo: " . $this->getPrezzo();
     }
 
     public function getId(): int
