@@ -12,4 +12,5 @@ abstract class MovimentoTipo
     const DISTRIBUZIONE_CARICO = "Distribuzione - Carico";
     const DISTRIBUZIONE_RESO = "Distribuzione - Reso";
     const STAMPA = "Stampa";
+    const INVENTARIO = "Inventario";
 }

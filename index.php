@@ -44,6 +44,8 @@ $movimenti_array = [
     [4, 3, "03/02/2020", App\MovimentoTipo::CONTODEPOSITO_VENDITA],
     [5, 3, "03/02/2020", App\MovimentoTipo::CONTODEPOSITO_RESO],
     [6, 6, "05/02/2020", App\MovimentoTipo::RICEVUTA],
+    [7, 6, "06/02/2020", App\MovimentoTipo::INVENTARIO],
+    [8, 6, "07/02/2020", App\MovimentoTipo::RICEVUTA],
 ];
 
 $movimenti = new \App\Movimenti();
@@ -63,12 +65,27 @@ $movimentidettaglio_array = [
     [3, 3, 1, 20, 30],
     [4, 4, 1, 15, 30],
     [5, 5, 1, 5, 0],
-    [6, 6, 1, 5, 20]
+    [6, 6, 1, 5, 20],
+    [7, 7, 1, 67, 0],
+    [8, 6, 1, 5, 20]
+
 ];
 
 $mdettaglio = new \App\MovimentiDettaglio();
 $mdettaglio->addByArray($movimentidettaglio_array);
 $mdettaglio->stampaLista();
 
+// var_dump($libri->searchById($mdettaglio->getMovimenti()[1]->getIdlibro())->getTitolo());
+
+// ----------------------------
+// Creazione magazzino
+// ----------------------------
+
+$magazzino = new \App\Magazzino($libri, $soggetti, $movimenti, $mdettaglio);
+$magazzino->stampaListaByIdlibro(1);
+
+// TODO
+// - Ordinare i movimenti in base a data e id per poter fare i calcoli correttamente
+// - Manca per quale soggetto il magazzino
 ?>
 
