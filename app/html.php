@@ -70,4 +70,11 @@ EOD;
     {
         echo $str. "</br>";
     }
+
+    public static function dump($el)
+    {
+        echo "<pre>";
+        var_dump($el);
+        echo "</pre>";
+    }
 }

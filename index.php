@@ -50,6 +50,7 @@ $movimenti_array = [
     [6, 5, "05/02/2020", App\MovimentoTipo::RICEVUTA],
     [7, 1, "06/02/2020", App\MovimentoTipo::INVENTARIO],
     [8, 5, "07/02/2020", App\MovimentoTipo::RICEVUTA],
+    [9, 2, "03/02/2020", App\MovimentoTipo::INVENTARIO],
 ];
 
 $movimenti = new \App\Movimenti();
@@ -74,6 +75,7 @@ $movimentidettaglio_array = [
     [8, 6, 1, 5, 20],
     [9, 1, 2, 200, 0],
     [10, 2, 2, 10, 0],
+    [11, 9, 1, 2, 0],
 
 ];
 
@@ -88,7 +90,7 @@ $mdettaglio->stampaLista();
 // ----------------------------
 
 $magazzino = new \App\Magazzino($libri, $soggetti, $movimenti, $mdettaglio);
-$magazzino->stampaListaByIdlibro(1, 2);
+$magazzino->stampaListaByIdlibro(1, 1);
 
 // TODO
 // - Ordinare i movimenti in base a data e id per poter fare i calcoli correttamente

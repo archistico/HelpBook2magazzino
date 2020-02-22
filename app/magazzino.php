@@ -20,16 +20,16 @@ class Magazzino
     public function stampaListaByIdlibro(int $idlibro, int $idsoggetto)
     {
         // Cerca il nome del soggetto
-        \App\Html::printH1($this->so->searchById($idsoggetto)->getNome());
+        \App\Html::printH1($this->so->searchById($idsoggetto)->getNome()." #".$idsoggetto);
         \App\Html::printH2("Libro:".$this->li->searchById($idlibro)->getTitolo());
 
-        $magazzini_principali = $idsoggetto == 1 or $idsoggetto == 2;
+        $magazzini_principali = $idsoggetto == 1;
         if ($magazzini_principali) {
             // Cercare tutti i md con idlibro = idlibro
             $mdById = [];
             foreach ($this->md->getMovimenti() as $el) {
                 if ($el->getIdlibro() == $idlibro) {
-                    $mdById[] = ['tipo' => $this->mo->searchById($el->getIdmovimento())->getTipo(), 'quantita' => $el->getQuantita()];
+                    $mdById[] = ['tipo' => $this->mo->searchById($el->getIdmovimento())->getTipo(), 'quantita' => $el->getQuantita(), 'idmovimento' => $el->getIdmovimento()];
                 }
             }
 
@@ -66,7 +66,7 @@ class Magazzino
                     $quantita = -$el['quantita'];
                     echo $el['tipo'] . " | " . $quantita . " | Giacenza: " . $giacenza . "</br>";
                 }
-                if ($el['tipo'] == \App\MovimentoTipo::INVENTARIO) {
+                if (($el['tipo'] == \App\MovimentoTipo::INVENTARIO) && ( $this->mo->searchById($el['idmovimento'])->getIdsoggetto() == $idsoggetto )) {
                     $correzione = $el['quantita'] - $giacenza;
                     $giacenza = $el['quantita'];
                     echo $el['tipo'] . " | " . $correzione . " | Giacenza: " . $giacenza . "</br>";
@@ -76,8 +76,8 @@ class Magazzino
             // Cercare tutti i md con idlibro = idlibro
             $mdById = [];
             foreach ($this->md->getMovimenti() as $el) {
-                if (($el->getIdlibro() == $idlibro) && ( $this->mo->searchById($el->getIdmovimento())->getIdsoggetto() == $idsoggetto )) {
-                    $mdById[] = ['tipo' => $this->mo->searchById($el->getIdmovimento())->getTipo(), 'quantita' => $el->getQuantita()];
+                if (($el->getIdlibro() == $idlibro) and ( $this->mo->searchById($el->getIdmovimento())->getIdsoggetto() == $idsoggetto )) {
+                    $mdById[] = ['tipo' => $this->mo->searchById($el->getIdmovimento())->getTipo(), 'quantita' => $el->getQuantita(), 'idmovimento' => $el->getIdmovimento()];
                 }
             }
 
@@ -99,6 +99,11 @@ class Magazzino
                     $quantita = -$el['quantita'];
                     $giacenza = $giacenza + $quantita;
                     echo $el['tipo'] . " | " . $quantita . " | Giacenza: " . $giacenza . "</br>";
+                }
+                if (($el['tipo'] == \App\MovimentoTipo::INVENTARIO) && ( $this->mo->searchById($el['idmovimento'])->getIdsoggetto() == $idsoggetto )) {
+                    $correzione = $el['quantita'] - $giacenza;
+                    $giacenza = $el['quantita'];
+                    echo $el['tipo'] . " | " . $correzione . " | Giacenza: " . $giacenza . "</br>";
                 }
             }
         }
