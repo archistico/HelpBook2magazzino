@@ -4,8 +4,6 @@ require 'vendor/autoload.php';
 
 \App\Html::head();
 
-\App\Html::printH1("Lista elementi");
-
 // -------------------
 // Creazione libri
 // -------------------
@@ -19,14 +17,13 @@ $libri_array = [
 
 $libri = new \App\Libri();
 $libri->addByArray($libri_array);
-$libri->stampaLista();
 
 // -------------------
 // Creazione soggetti
 // -------------------
 
 $soggetti_array = [
-    [1, "Magazzino principale"],
+    [1, "Magazzino"],
     [2, "Distributore"],
     [3, "Libreria"],
     [4, "Autore"],
@@ -35,7 +32,6 @@ $soggetti_array = [
 
 $soggetti = new \App\Soggetti();
 $soggetti->addByArray($soggetti_array);
-$soggetti->stampaLista();
 
 // -------------------
 // Creazione movimenti
@@ -55,8 +51,6 @@ $movimenti_array = [
 
 $movimenti = new \App\Movimenti();
 $movimenti->addByArray($movimenti_array);
-$movimenti->stampaLista();
-
 
 // ----------------------------
 // Creazione movimentodettaglio
@@ -74,25 +68,33 @@ $movimentidettaglio_array = [
     [7, 7, 1, 67, 0],
     [8, 6, 1, 5, 20],
     [9, 1, 2, 200, 0],
-    [10, 2, 2, 10, 0],
+    [10, 8, 2, 10, 0],
     [11, 9, 1, 0, 0],
 
 ];
 
 $mdettaglio = new \App\MovimentiDettaglio();
 $mdettaglio->addByArray($movimentidettaglio_array);
-$mdettaglio->stampaLista();
 
-// var_dump($libri->searchById($mdettaglio->getMovimenti()[1]->getIdlibro())->getTitolo());
+// Lista movimenti
+
+\App\Html::printH1("Tabella Movimenti");
+\App\MovimentiDettaglio::stampaTabellaMovimenti($libri, $soggetti, $movimenti, $mdettaglio);
 
 // ----------------------------
 // Creazione magazzino
 // ----------------------------
 
+\App\Html::printH1("Lista Giacenze");
+
 $magazzino = new \App\Magazzino($libri, $soggetti, $movimenti, $mdettaglio);
-$magazzino->stampaListaByIdlibro(1, 1);
+foreach ($soggetti->getSoggetti() as $s) {
+    $magazzino->stampaListaByIdlibro(1, $s->getId());
+}
+
 
 // TODO
+// - movimentodettaglio crea tabella con tutte le info per ogni spostamento
 // - Ordinare i movimenti in base a data e id per poter fare i calcoli correttamente
 // - Settare distribuzione carico e reso
 // - funzione che ritorna la giacenza per un magazzino e un libro

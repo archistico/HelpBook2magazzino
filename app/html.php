@@ -58,12 +58,32 @@ EOD;
 
     public static function printH1(String $str)
     {
-        echo "<h1>".$str."</h1>";
+        echo "<h1 class='mt-4 bg-primary text-light'>".$str."</h1>";
     }
 
     public static function printH2(String $str)
     {
         echo "<h2>".$str."</h2>";
+    }
+
+    public static function printH3(String $str)
+    {
+        echo "<h3>".$str."</h3>";
+    }
+
+    public static function printH4(String $str)
+    {
+        echo "<h4>".$str."</h4>";
+    }
+
+    public static function printH5(String $str)
+    {
+        echo "<h5>".$str."</h5>";
+    }
+
+    public static function printH6(String $str)
+    {
+        echo "<h6>".$str."</h6>";
     }
 
     public static function println(String $str)
@@ -76,5 +96,57 @@ EOD;
         echo "<pre>";
         var_dump($el);
         echo "</pre>";
+    }
+
+    public static function tableBordered(array $headers, array $data)
+    {
+        echo '<table class="table table-bordered table-sm">';
+        echo '<thead class="thead-dark">';
+        echo '<tr>';
+
+        foreach ($headers as $h) {
+            echo '<th scope="col">'.$h.'</th>';
+        }
+
+        echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+
+        foreach ($data as $d) {
+            echo '<tr>';
+            foreach ($d as $sd) {
+                echo '<td>' . $sd . '</td>';
+            }
+            echo '</tr>';
+        }
+
+        echo '</tbody>';
+        echo '</table>';
+    }
+
+    public static function table(array $headers, array $data)
+    {
+        echo '<table class="table table-sm">';
+        echo '<thead class="">';
+        echo '<tr>';
+
+        foreach ($headers as $h) {
+            echo '<th scope="col">'.$h.'</th>';
+        }
+
+        echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+
+        foreach ($data as $d) {
+            echo '<tr>';
+            foreach ($d as $sd) {
+                echo '<td>' . $sd . '</td>';
+            }
+            echo '</tr>';
+        }
+
+        echo '</tbody>';
+        echo '</table>';
     }
 }
