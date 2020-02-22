@@ -1,6 +1,11 @@
 <?php
 require 'vendor/autoload.php';
 
+
+\App\Html::head();
+
+\App\Html::printH1("Lista elementi");
+
 // -------------------
 // Creazione libri
 // -------------------
@@ -89,5 +94,6 @@ $magazzino->stampaListaByIdlibro(1, 2);
 // - Ordinare i movimenti in base a data e id per poter fare i calcoli correttamente
 // - Settare distribuzione carico e reso
 // - funzione che ritorna la giacenza per un magazzino e un libro
+\App\Html::foot();
 ?>
 

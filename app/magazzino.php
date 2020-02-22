@@ -20,8 +20,8 @@ class Magazzino
     public function stampaListaByIdlibro(int $idlibro, int $idsoggetto)
     {
         // Cerca il nome del soggetto
-        echo "<h1>" . $this->so->searchById($idsoggetto)->getNome() . "</h1>";
-        echo "<h2>Libro: " . $this->li->searchById($idlibro)->getTitolo() . "</h2>";
+        \App\Html::printH1($this->so->searchById($idsoggetto)->getNome());
+        \App\Html::printH2("Libro:".$this->li->searchById($idlibro)->getTitolo());
 
         $magazzini_principali = $idsoggetto == 1 or $idsoggetto == 2;
         if ($magazzini_principali) {

@@ -16,6 +16,11 @@ class Movimenti
         return $this->movimenti;
     }
 
+    public function getMovimentiOrdered()
+    {
+        return $this->movimenti;
+    }
+
     public function searchById(int $id)
     {
         foreach ($this->movimenti as $el) {
