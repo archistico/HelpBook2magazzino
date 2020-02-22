@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd96cd68-6bb2-4007-880b-bcb49713fc34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/magazzino.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/magazzino.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/magazzino.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/magazzino.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/magazzino.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/movimentotipo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/movimentotipo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
@@ -12,13 +14,19 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1Y48QK4xjkrRc6Z9C8Di6N2hxh2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -56,6 +64,7 @@
       <workItem from="1582278499651" duration="35000" />
       <workItem from="1582278573176" duration="4434000" />
       <workItem from="1582292359756" duration="10533000" />
+      <workItem from="1582360729768" duration="3728000" />
     </task>
     <servers />
   </component>
@@ -80,9 +89,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582190986984" />
-    <state x="655" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1582278580210">
+    <state x="655" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1582360772718">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="655" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582360772718" />
     <state x="655" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582278580210" />
   </component>
 </project>

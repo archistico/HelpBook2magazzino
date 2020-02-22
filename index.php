@@ -22,11 +22,10 @@ $libri->stampaLista();
 
 $soggetti_array = [
     [1, "Magazzino principale"],
-    [2, "Magazzino secondario"],
-    [3, "Distributore"],
-    [4, "Libreria"],
-    [5, "Autore"],
-    [6, "Acquirente"]
+    [2, "Distributore"],
+    [3, "Libreria"],
+    [4, "Autore"],
+    [5, "Acquirente"]
 ];
 
 $soggetti = new \App\Soggetti();
@@ -39,13 +38,13 @@ $soggetti->stampaLista();
 
 $movimenti_array = [
     [1, 1, "01/01/2020", App\MovimentoTipo::STAMPA],
-    [2, 6, "02/01/2020", App\MovimentoTipo::FATTURA],
-    [3, 3, "03/01/2020", App\MovimentoTipo::DDT],
-    [4, 3, "03/02/2020", App\MovimentoTipo::CONTODEPOSITO_VENDITA],
-    [5, 3, "03/02/2020", App\MovimentoTipo::CONTODEPOSITO_RESO],
-    [6, 6, "05/02/2020", App\MovimentoTipo::RICEVUTA],
-    [7, 6, "06/02/2020", App\MovimentoTipo::INVENTARIO],
-    [8, 6, "07/02/2020", App\MovimentoTipo::RICEVUTA],
+    [2, 5, "02/01/2020", App\MovimentoTipo::FATTURA],
+    [3, 2, "03/01/2020", App\MovimentoTipo::DDT],
+    [4, 2, "03/02/2020", App\MovimentoTipo::CONTODEPOSITO_FATTURA],
+    [5, 2, "03/02/2020", App\MovimentoTipo::CONTODEPOSITO_RESO],
+    [6, 5, "05/02/2020", App\MovimentoTipo::RICEVUTA],
+    [7, 1, "06/02/2020", App\MovimentoTipo::INVENTARIO],
+    [8, 5, "07/02/2020", App\MovimentoTipo::RICEVUTA],
 ];
 
 $movimenti = new \App\Movimenti();
@@ -67,7 +66,9 @@ $movimentidettaglio_array = [
     [5, 5, 1, 5, 0],
     [6, 6, 1, 5, 20],
     [7, 7, 1, 67, 0],
-    [8, 6, 1, 5, 20]
+    [8, 6, 1, 5, 20],
+    [9, 1, 2, 200, 0],
+    [10, 2, 2, 10, 0],
 
 ];
 
@@ -82,10 +83,11 @@ $mdettaglio->stampaLista();
 // ----------------------------
 
 $magazzino = new \App\Magazzino($libri, $soggetti, $movimenti, $mdettaglio);
-$magazzino->stampaListaByIdlibro(1);
+$magazzino->stampaListaByIdlibro(1, 2);
 
 // TODO
 // - Ordinare i movimenti in base a data e id per poter fare i calcoli correttamente
-// - Manca per quale soggetto il magazzino
+// - Settare distribuzione carico e reso
+// - funzione che ritorna la giacenza per un magazzino e un libro
 ?>
 
