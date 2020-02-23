@@ -60,7 +60,7 @@ class MovimentiDettaglio
 
             $nome = $so->searchById($idsoggetto)->getNome();
 
-            \App\Html::printH4($data . " " .$tipo ." a '".$nome."'");
+            \App\Html::printH4('#'.$id.' '.$data . " " .$tipo ." a '".$nome."'");
 
             // Cerco tutti i movimentidettaglio che hanno $idmovimento = $id
 

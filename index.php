@@ -94,10 +94,10 @@ foreach ($soggetti->getSoggetti() as $s) {
 
 
 // TODO
-// - movimentodettaglio crea tabella con tutte le info per ogni spostamento
-// - Ordinare i movimenti in base a data e id per poter fare i calcoli correttamente
+// - Ordinare le giacenze in base all'ordine dei movimenti e non in base all'id del movimentodettaglio
 // - Settare distribuzione carico e reso
 // - funzione che ritorna la giacenza per un magazzino e un libro
+
 \App\Html::foot();
 ?>
 

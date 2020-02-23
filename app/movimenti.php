@@ -18,7 +18,22 @@ class Movimenti
 
     public function getMovimentiOrdered()
     {
-        return $this->movimenti;
+        $mov = $this->movimenti;
+
+        usort($mov, function($a, $b) {
+            $ad = $a->getData();
+            $bd = $b->getData();
+
+            if ($ad == $bd) {
+                $ai = $a->getId();
+                $bi = $b->getId();
+                return $ai < $bi ? -1 : 1;
+            }
+
+            return $ad < $bd ? -1 : 1;
+        });
+
+        return $mov;
     }
 
     public function searchById(int $id)
