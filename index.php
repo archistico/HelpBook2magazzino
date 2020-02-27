@@ -95,8 +95,12 @@ foreach ($soggetti->getSoggetti() as $s) {
     $magazzino->stampaMovimentiGiacenzeByIdlibro(1, $s->getId());
 }
 
+\App\Html::printH2("Titolo: ".$libri->searchById(2)->getTitolo());
+foreach ($soggetti->getSoggetti() as $s) {
+    $magazzino->stampaMovimentiGiacenzeByIdlibro(2, $s->getId());
+}
+
 // TODO
-// - Ordinare le giacenze in base all'ordine dei movimenti e non in base all'id del movimentodettaglio
 // - Settare distribuzione carico e reso
 // - funzione che ritorna la giacenza per un magazzino e un libro
 

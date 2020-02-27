@@ -55,8 +55,6 @@ class Magazzino
             }
         }
 
-        //Html::dump($movimentidettaglio);
-
         if ($magazzini_principali) {
 
             // Calcola Giacenza

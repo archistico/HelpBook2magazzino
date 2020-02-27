@@ -58,12 +58,12 @@ EOD;
 
     public static function printH1(String $str)
     {
-        echo "<h1 class='mt-4 bg-primary text-light'>".$str."</h1>";
+        echo "<h1 class='mt-4 pt-2 pb-2 bg-primary text-light'>".$str."</h1>";
     }
 
     public static function printH2(String $str)
     {
-        echo "<h2>".$str."</h2>";
+        echo "<h2 class='mt-4 pt-2 pb-2 bg-secondary text-light'>".$str."</h2>";
     }
 
     public static function printH3(String $str)
