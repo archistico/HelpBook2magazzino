@@ -90,13 +90,10 @@ $mdettaglio->addByArray($movimentidettaglio_array);
 
 $magazzino = new \App\Magazzino($libri, $soggetti, $movimenti, $mdettaglio);
 
-/*
 foreach ($soggetti->getSoggetti() as $s) {
-    $magazzino->stampaListaByIdlibro2(1, $s->getId());
+    $magazzino->stampaListaByIdlibro(1, $s->getId());
 }
-*/
 
-$magazzino->stampaListaByIdlibro2(1, 1);
 
 // TODO
 // - Ordinare le giacenze in base all'ordine dei movimenti e non in base all'id del movimentodettaglio
