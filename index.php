@@ -9,10 +9,10 @@ require 'vendor/autoload.php';
 // -------------------
 
 $libri_array = [
-    [1, "Uno", 10],
-    [2, "Due", 20],
-    [3, "Tre", 30],
-    [4, "Quattro", 40]
+    [1, "Uno stambecco giallo", 10],
+    [2, "Due granelli di magia", 20],
+    [3, "Tre quadri sul muro", 30],
+    [4, "Quattro mani due occhi", 40]
 ];
 
 $libri = new \App\Libri();
@@ -86,14 +86,14 @@ $mdettaglio->addByArray($movimentidettaglio_array);
 // Creazione magazzino
 // ----------------------------
 
-\App\Html::printH1("Lista Giacenze");
+\App\Html::printH1("Movimenti giacenze");
+\App\Html::printH2("Titolo: ".$libri->searchById(1)->getTitolo());
 
 $magazzino = new \App\Magazzino($libri, $soggetti, $movimenti, $mdettaglio);
 
 foreach ($soggetti->getSoggetti() as $s) {
-    $magazzino->stampaListaByIdlibro(1, $s->getId());
+    $magazzino->stampaMovimentiGiacenzeByIdlibro(1, $s->getId());
 }
-
 
 // TODO
 // - Ordinare le giacenze in base all'ordine dei movimenti e non in base all'id del movimentodettaglio
