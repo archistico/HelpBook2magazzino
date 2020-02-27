@@ -132,4 +132,87 @@ class Magazzino
             }
         }
     }
+
+
+    // MODIFICATA
+
+
+    public function stampaListaByIdlibro2(int $idlibro, int $idsoggetto)
+    {
+        $magazzini_principali = $idsoggetto == 1;
+
+        if ($magazzini_principali) {
+
+            // raggruppamento dei md ordinati
+            $mdById = [];
+
+            // Per ogni movimento trova i movimentidettaglio del mov
+            foreach ($this->mo->getMovimentiOrdered() as $mov) {
+                $md_array_each_mov = $this->md->getMovimentiDettaglioById($mov->getId(), $idlibro);
+                // $md_array_each_mov lista di ogni movimento dettaglio ordinato in base ai movimenti
+
+                //foreach ()
+                $movimentoId = $mov->getId();
+
+                /*
+                if ($el->getIdlibro() == $idlibro) {
+                    $mdById[] = ['tipo' => $this->mo->searchById($el->getIdmovimento())->getTipo(), 'quantita' => $el->getQuantita(), 'idmovimento' => $el->getIdmovimento(), 'idmd' =>$el->getId()];
+                }
+                */
+            }
+            /*
+            $mdById = [];
+            foreach ($this->md->getMovimentiDettaglio() as $el) {
+                if ($el->getIdlibro() == $idlibro) {
+                    $mdById[] = ['tipo' => $this->mo->searchById($el->getIdmovimento())->getTipo(), 'quantita' => $el->getQuantita(), 'idmovimento' => $el->getIdmovimento(), 'idmd' =>$el->getId()];
+                }
+            }
+
+            if(count($mdById)>0) {
+                \App\Html::printH2($this->so->searchById($idsoggetto)->getNome()." #".$idsoggetto);
+                \App\Html::println("Libro:".$this->li->searchById($idlibro)->getTitolo());
+            }
+
+            $giacenza = 0;
+
+            foreach ($mdById as $el) {
+                $quantita = 0;
+                if ($el['tipo'] == \App\MovimentoTipo::STAMPA) {
+                    $quantita = $el['quantita'];
+                    $giacenza = $giacenza + $quantita;
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
+                }
+                if ($el['tipo'] == \App\MovimentoTipo::FATTURA) {
+                    $quantita = -$el['quantita'];
+                    $giacenza = $giacenza + $quantita;
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
+                }
+                if ($el['tipo'] == \App\MovimentoTipo::RICEVUTA) {
+                    $quantita = -$el['quantita'];
+                    $giacenza = $giacenza + $quantita;
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
+                }
+                if ($el['tipo'] == \App\MovimentoTipo::DDT) {
+                    $quantita = -$el['quantita'];
+                    $giacenza = $giacenza + $quantita;
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
+                }
+                if ($el['tipo'] == \App\MovimentoTipo::CONTODEPOSITO_RESO) {
+                    $quantita = +$el['quantita'];
+                    $giacenza = $giacenza + $quantita;
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
+                }
+                if ($el['tipo'] == \App\MovimentoTipo::CONTODEPOSITO_FATTURA) {
+                    $quantita = -$el['quantita'];
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
+                }
+                if (($el['tipo'] == \App\MovimentoTipo::INVENTARIO) && ( $this->mo->searchById($el['idmovimento'])->getIdsoggetto() == $idsoggetto )) {
+                    $quantita = $el['quantita'] - $giacenza;
+                    $giacenza = $el['quantita'];
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
+                }
+            }
+            */
+        }
+    }
 }

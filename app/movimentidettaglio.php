@@ -84,4 +84,15 @@ class MovimentiDettaglio
 
         }
     }
+
+    public function getMovimentiDettaglioById(int $idmovimento, int $idlibro)
+    {
+        $ret = [];
+        foreach ($this->getMovimentiDettaglio() as $md) {
+            if (($md->getIdlibro() == $idlibro) && ($md->getIdmovimento() == $idmovimento)) {
+                $ret[] = $md;
+            }
+        }
+        return $ret;
+    }
 }
