@@ -50,36 +50,36 @@ class Magazzino
                 if ($el['tipo'] == \App\MovimentoTipo::STAMPA) {
                     $quantita = $el['quantita'];
                     $giacenza = $giacenza + $quantita;
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::FATTURA) {
                     $quantita = -$el['quantita'];
                     $giacenza = $giacenza + $quantita;
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::RICEVUTA) {
                     $quantita = -$el['quantita'];
                     $giacenza = $giacenza + $quantita;
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::DDT) {
                     $quantita = -$el['quantita'];
                     $giacenza = $giacenza + $quantita;
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::CONTODEPOSITO_RESO) {
                     $quantita = +$el['quantita'];
                     $giacenza = $giacenza + $quantita;
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::CONTODEPOSITO_FATTURA) {
                     $quantita = -$el['quantita'];
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if (($el['tipo'] == \App\MovimentoTipo::INVENTARIO) && ( $this->mo->searchById($el['idmovimento'])->getIdsoggetto() == $idsoggetto )) {
                     $quantita = $el['quantita'] - $giacenza;
                     $giacenza = $el['quantita'];
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
             }
         } else {
@@ -103,31 +103,31 @@ class Magazzino
 
                 if ($el['tipo'] == \App\MovimentoTipo::FATTURA) {
                     $quantita = $el['quantita'];
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::RICEVUTA) {
                     $quantita = $el['quantita'];
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::DDT) {
                     $quantita = +$el['quantita'];
                     $giacenza = $giacenza + $quantita;
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::CONTODEPOSITO_RESO) {
                     $quantita = -$el['quantita'];
                     $giacenza = $giacenza + $quantita;
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if ($el['tipo'] == \App\MovimentoTipo::CONTODEPOSITO_FATTURA) {
                     $quantita = -$el['quantita'];
                     $giacenza = $giacenza + $quantita;
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
                 if (($el['tipo'] == \App\MovimentoTipo::INVENTARIO) && ( $this->mo->searchById($el['idmovimento'])->getIdsoggetto() == $idsoggetto )) {
                     $quantita = $el['quantita'] - $giacenza;
                     $giacenza = $el['quantita'];
-                    $this->printQuantitaGiacenza($el['tipo'], $el['idmd'], $quantita, $giacenza);
+                    $this->printQuantitaGiacenza($el['tipo'], $el['idmovimento'], $quantita, $giacenza);
                 }
             }
         }

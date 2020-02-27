@@ -47,6 +47,7 @@ $movimenti_array = [
     [7, 1, "06/02/2020", App\MovimentoTipo::INVENTARIO],
     [8, 5, "07/02/2020", App\MovimentoTipo::RICEVUTA],
     [9, 2, "03/02/2020", App\MovimentoTipo::INVENTARIO],
+    [10, 5, "08/02/2020", App\MovimentoTipo::FATTURA],
 ];
 
 $movimenti = new \App\Movimenti();
@@ -66,11 +67,11 @@ $movimentidettaglio_array = [
     [5, 5, 1, 5, 0],
     [6, 6, 1, 5, 20],
     [7, 7, 1, 67, 0],
-    [8, 6, 1, 5, 20],
+    [8, 6, 2, 5, 20],
     [9, 1, 2, 200, 0],
     [10, 8, 2, 10, 0],
     [11, 9, 1, 0, 0],
-
+    [12, 10, 1, 22, 0],
 ];
 
 $mdettaglio = new \App\MovimentiDettaglio();
