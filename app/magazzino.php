@@ -108,14 +108,19 @@ class Magazzino
 
             // Calcola Giacenza
             if(count($movimentidettaglio)>0) {
-                \App\Html::printH3($soggettoNome);
 
+                $stampatoSoggettoNome = false;
                 $giacenza = 0;
 
                 foreach ($movimentidettaglio as $md) {
 
                     // Rispetto a prima devo eliminare i movimenti che non riguardano il soggetto considerato
                     if($md->getMovimentoSoggettoId() == $idsoggetto) {
+
+                        if(!$stampatoSoggettoNome) {
+                            \App\Html::printH3($soggettoNome);
+                            $stampatoSoggettoNome = true;
+                        }
                         $quantita = 0;
                         if ($md->getMovimentoTipo() == \App\MovimentoTipo::FATTURA) {
                             $quantita = $md->getQuantita();
