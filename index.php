@@ -29,7 +29,8 @@ $soggetti_array = [
     [3, "Libreria"],
     [4, "Autore"],
     [5, "Acquirente 1"],
-    [6, "Acquirente 2"]
+    [6, "Acquirente 2"],
+    [7, "Fiera del salame"]
 ];
 
 $soggetti = new \App\Soggetti();
@@ -51,6 +52,7 @@ $movimenti_array = [
     [9, 2, "03/02/2020", App\MovimentoTipo::INVENTARIO],
     [10, 5, "08/02/2020", App\MovimentoTipo::FATTURA],
     [11, 6, "09/02/2020", App\MovimentoTipo::FATTURA],
+    [12, 7, "10/03/2020", App\MovimentoTipo::DDT],
 ];
 
 $movimenti = new \App\Movimenti();
@@ -78,6 +80,8 @@ $movimentidettaglio_array = [
     [13, 1, 5, 50, 0],
     [14, 11, 5, 2, 15],
     [15, 11, 1, 1, 15],
+    [16, 12, 3, 30, 0],
+    [17, 12, 4, 40, 0],
 ];
 
 $mdettaglio = new \App\MovimentiDettaglio();
@@ -93,17 +97,18 @@ $mdettaglio->addByArray($movimentidettaglio_array);
 // ----------------------------
 
 \App\Html::printH1("Movimenti giacenze");
-\App\Html::printH2("Titolo: ".$libri->searchById(1)->getTitolo());
-
 $magazzino = new \App\Magazzino($libri, $soggetti, $movimenti, $mdettaglio);
 
+$idlibro = 3;
+\App\Html::printH2("Titolo: ".$libri->searchById($idlibro)->getTitolo());
 foreach ($soggetti->getSoggetti() as $s) {
-    $magazzino->stampaMovimentiGiacenzeByIdlibro(1, $s->getId());
+    $magazzino->stampaMovimentiGiacenzeByIdlibro($idlibro, $s->getId());
 }
 
-\App\Html::printH2("Titolo: ".$libri->searchById(5)->getTitolo());
+$idlibro = 4;
+\App\Html::printH2("Titolo: ".$libri->searchById($idlibro)->getTitolo());
 foreach ($soggetti->getSoggetti() as $s) {
-    $magazzino->stampaMovimentiGiacenzeByIdlibro(5, $s->getId());
+    $magazzino->stampaMovimentiGiacenzeByIdlibro($idlibro, $s->getId());
 }
 
 // TODO

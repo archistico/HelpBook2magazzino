@@ -22,6 +22,11 @@ class Magazzino
         if($quantita >0) {
             $quantita = '+'.strval($quantita);
         }
+
+        if($giacenza >0) {
+            $giacenza = '+'.strval($giacenza);
+        }
+
         echo $md->getMovimentoData(). " | #" . $md->getIdMovimento() . " " . $md->getMovimentoTipo() . " | " . $quantita . " | Giacenza: " . $giacenza . "</br>";
     }
 
