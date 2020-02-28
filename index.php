@@ -114,8 +114,6 @@ for($idlibro = 1; $idlibro<(count($soggetti_array)-1); $idlibro++) {
     }
 }
 
-
-
 // TODO
 // - Settare distribuzione carico e reso
 // - funzione che ritorna la giacenza per un magazzino e un libro
