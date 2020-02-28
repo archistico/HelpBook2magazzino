@@ -12,7 +12,8 @@ $libri_array = [
     [1, "Uno stambecco giallo", 10],
     [2, "Due granelli di magia", 20],
     [3, "Tre quadri sul muro", 30],
-    [4, "Quattro mani due occhi", 40]
+    [4, "Quattro mani due occhi", 40],
+    [5, "Cinque porte di altre case", 50],
 ];
 
 $libri = new \App\Libri();
@@ -27,7 +28,8 @@ $soggetti_array = [
     [2, "Distributore"],
     [3, "Libreria"],
     [4, "Autore"],
-    [5, "Acquirente"]
+    [5, "Acquirente 1"],
+    [6, "Acquirente 2"]
 ];
 
 $soggetti = new \App\Soggetti();
@@ -48,6 +50,7 @@ $movimenti_array = [
     [8, 5, "07/02/2020", App\MovimentoTipo::RICEVUTA],
     [9, 2, "03/02/2020", App\MovimentoTipo::INVENTARIO],
     [10, 5, "08/02/2020", App\MovimentoTipo::FATTURA],
+    [11, 6, "09/02/2020", App\MovimentoTipo::FATTURA],
 ];
 
 $movimenti = new \App\Movimenti();
@@ -72,6 +75,9 @@ $movimentidettaglio_array = [
     [10, 8, 2, 10, 0],
     [11, 9, 1, 0, 0],
     [12, 10, 1, 22, 0],
+    [13, 1, 5, 50, 0],
+    [14, 11, 5, 2, 15],
+    [15, 11, 1, 1, 15],
 ];
 
 $mdettaglio = new \App\MovimentiDettaglio();
@@ -95,9 +101,9 @@ foreach ($soggetti->getSoggetti() as $s) {
     $magazzino->stampaMovimentiGiacenzeByIdlibro(1, $s->getId());
 }
 
-\App\Html::printH2("Titolo: ".$libri->searchById(2)->getTitolo());
+\App\Html::printH2("Titolo: ".$libri->searchById(5)->getTitolo());
 foreach ($soggetti->getSoggetti() as $s) {
-    $magazzino->stampaMovimentiGiacenzeByIdlibro(2, $s->getId());
+    $magazzino->stampaMovimentiGiacenzeByIdlibro(5, $s->getId());
 }
 
 // TODO
