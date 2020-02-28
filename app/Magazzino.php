@@ -27,7 +27,7 @@ class Magazzino
             $giacenza = '+'.strval($giacenza);
         }
 
-        echo $md->getMovimentoData(). " | #" . $md->getIdMovimento() . " " . $md->getMovimentoTipo() . " | " . $quantita . " | Giacenza: " . $giacenza . "</br>";
+        echo $md->getMovimentoData(). " | #" . $md->getIdMovimento() . " " . $md->getMovimentoTipo() . ": ". $md->getMovimentoSoggettoNome() ." | " . $quantita . " | Giacenza: " . $giacenza . "</br>";
     }
 
     public function stampaMovimentiGiacenzeByIdlibro(int $idlibro, int $idsoggetto)

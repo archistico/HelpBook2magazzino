@@ -53,6 +53,8 @@ $movimenti_array = [
     [10, 5, "08/02/2020", App\MovimentoTipo::FATTURA],
     [11, 6, "09/02/2020", App\MovimentoTipo::FATTURA],
     [12, 7, "10/03/2020", App\MovimentoTipo::DDT],
+    [13, 7, "12/03/2020", App\MovimentoTipo::CONTODEPOSITO_RESO],
+    [14, 7, "12/03/2020", App\MovimentoTipo::CONTODEPOSITO_FATTURA],
 ];
 
 $movimenti = new \App\Movimenti();
@@ -82,6 +84,12 @@ $movimentidettaglio_array = [
     [15, 11, 1, 1, 15],
     [16, 12, 3, 30, 0],
     [17, 12, 4, 40, 0],
+    [18, 1, 3, 50, 0],
+    [19, 1, 4, 50, 0],
+    [20, 13, 3, 15, 0],
+    [21, 13, 4, 35, 0],
+    [22, 14, 3, 15, 0],
+    [23, 14, 4, 5, 0],
 ];
 
 $mdettaglio = new \App\MovimentiDettaglio();
@@ -89,8 +97,8 @@ $mdettaglio->addByArray($movimentidettaglio_array);
 
 // Lista movimenti
 
-\App\Html::printH1("Tabella Movimenti");
-\App\MovimentiDettaglio::stampaTabellaMovimenti($libri, $soggetti, $movimenti, $mdettaglio);
+// \App\Html::printH1("Tabella Movimenti");
+// \App\MovimentiDettaglio::stampaTabellaMovimenti($libri, $soggetti, $movimenti, $mdettaglio);
 
 // ----------------------------
 // Creazione magazzino
@@ -99,21 +107,19 @@ $mdettaglio->addByArray($movimentidettaglio_array);
 \App\Html::printH1("Movimenti giacenze");
 $magazzino = new \App\Magazzino($libri, $soggetti, $movimenti, $mdettaglio);
 
-$idlibro = 3;
-\App\Html::printH2("Titolo: ".$libri->searchById($idlibro)->getTitolo());
-foreach ($soggetti->getSoggetti() as $s) {
-    $magazzino->stampaMovimentiGiacenzeByIdlibro($idlibro, $s->getId());
+for($idlibro = 1; $idlibro<(count($soggetti_array)-1); $idlibro++) {
+    \App\Html::printH2("Titolo: ".$libri->searchById($idlibro)->getTitolo());
+    foreach ($soggetti->getSoggetti() as $s) {
+        $magazzino->stampaMovimentiGiacenzeByIdlibro($idlibro, $s->getId());
+    }
 }
 
-$idlibro = 4;
-\App\Html::printH2("Titolo: ".$libri->searchById($idlibro)->getTitolo());
-foreach ($soggetti->getSoggetti() as $s) {
-    $magazzino->stampaMovimentiGiacenzeByIdlibro($idlibro, $s->getId());
-}
+
 
 // TODO
 // - Settare distribuzione carico e reso
 // - funzione che ritorna la giacenza per un magazzino e un libro
+// - Libro inviato due volte perché uno perso
 
 \App\Html::foot();
 ?>
